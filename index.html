@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="shortcut icon" href="https://cdn.iconscout.com/icon/premium/png-512-thumb/population-age-calculator-3746951-3124773.png?f=webp&w=256" type="image/x-icon">
+    <style>
+        body{
+            font-size: 32px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        curentDate = new Date();
+
+        let todayDate = new Date()
+        let todayMonth = new Date()
+        let todayYear = new Date()
+        let wekk = new Date();
+        todayDate=curentDate.getDate();
+        todayMonth=curentDate.getMonth()+1;
+        todayYear=curentDate.getFullYear()  ;
+
+
+       
+
+        date= parseInt( prompt("Enter Birth date:"));
+        month=parseInt(prompt("Enter Birth Month "));
+        year=parseInt(prompt("Enter Birh Year:"))  ;
+
+        let FinalDate;
+        let finalMonth;
+        let finalYear;
+    
+        let birth=new Date()
+        birth.setDate(date)
+        birth.setMonth(month-1)
+        birth.setFullYear(year)
+
+        if (todayDate >= date) {
+    FinalDate = todayDate - date;
+} else {
+    todayMonth -= 1;
+    FinalDate = todayDate + (new Date(todayYear, todayMonth, 0).getDate()) - date;
+}
+
+// Calculate the month difference
+if (todayMonth >= month) {
+    finalMonth = todayMonth - month;
+} else {
+    todayYear -= 1;
+    finalMonth = todayMonth + 12 - month;
+}
+        
+finalYear = todayYear - year;
+ 
+        console.log(birth.toDateString());
+        console.log("Days:- "+FinalDate )
+        console.log("Month:- "+finalMonth );
+        console.log("year:- "+finalYear);
+
+        document.write(birth.toDateString() +"<br>")
+        document.write("Days:- "+FinalDate +"<br>")
+        document.write("Month:- "+finalMonth  +"<br>")
+        document.write("year:- "+finalYear +"<br>")
+    </script>
+</body>
+</html>
